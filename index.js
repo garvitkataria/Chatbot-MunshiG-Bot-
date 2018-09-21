@@ -241,6 +241,44 @@ restService.post("/echo", function(req, res) {
             );  
             });   
         } 
+        else if(req.body.queryResult.parameters.number&&req.body.queryResult.parameters.itemName&&req.body.queryResult.parameters.change&&req.body.queryResult.parameters.changeType)
+        {
+          priceOfItem=0.0;
+          for (var i = results.length - 1; i >= 0; i--) 
+          {
+            if(results[i].itemName == req.body.queryResult.parameters.itemName)
+            {
+              priceOfItem = parseFloat(results[i].price); 
+            }
+          }
+          if(req.body.queryResult.parameters.change=='increase')
+          {
+            if(req.body.queryResult.parameters.changeType=='by')
+            {
+              priceOfItem +=  parseFloat(req.body.queryResult.parameters.number);
+            }
+            else if(req.body.queryResult.parameters.changeType=='to')
+            {
+              priceOfItem =  parseFloat(req.body.queryResult.parameters.number);
+            }
+          }
+          else if(req.body.queryResult.parameters.change=='decrease')
+          {
+            if(req.body.queryResult.parameters.changeType=='by')
+            {
+              priceOfItem -=  parseFloat(req.body.queryResult.parameters.number);
+            }
+            else if(req.body.queryResult.parameters.changeType=='to')
+            {
+              priceOfItem =  parseFloat(req.body.queryResult.parameters.number);
+            }
+          }
+          let sql = 'UPDATE item SET price = priceOfItem WHERE itemName = req.body.queryResult.parameters.itemName';
+          let query = db.query(sql, (err, results) => {
+              if(err) throw err;
+              res.json("Price of "+req.body.queryResult.parameters.itemName+" successfully updated to "+priceOfItem+'.');
+          });
+        }
         else
         {
           speech = "Seems like some problem. Speak again.";
