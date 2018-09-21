@@ -74,7 +74,7 @@ restService.post("/echo", function(req, res) {
         }
         return res.json(
         {
-        "fulfillmentText": [speech, speech],
+        // "fulfillmentText": [speech, speech],
         "fulfillmentMessages": [
           {
             "text":{
