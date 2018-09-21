@@ -273,11 +273,24 @@ restService.post("/echo", function(req, res) {
               priceOfItem =  parseFloat(req.body.queryResult.parameters.number);
             }
           }
+          speech = ("Price of "+req.body.queryResult.parameters.itemName+" successfully updated to "+priceOfItem+'.');
           let sql = 'UPDATE item SET price = priceOfItem WHERE itemName = req.body.queryResult.parameters.itemName';
           let query = db.query(sql, (err, results) => {
               if(err) throw err;
-              res.json("Price of "+req.body.queryResult.parameters.itemName+" successfully updated to "+priceOfItem+'.');
-          });
+              return res.json(
+              {
+              "fulfillmentText": [speech],
+              "fulfillmentMessages": [
+                {
+                  "text":{
+                    "text":[
+                      speech
+                    ]
+                  },
+                }
+              ],
+              });
+            });
         }
         else
         {
@@ -308,6 +321,6 @@ restService.post("/echo", function(req, res) {
 
 
 
-restService.listen(process.env.PORT || 8077, function() {
+restService.listen(process.env.PORT || 8078, function() {
   console.log("Server up and listening");
 });
