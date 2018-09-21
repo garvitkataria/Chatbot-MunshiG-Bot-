@@ -53,10 +53,10 @@ restService.post("/echo", function(req, res) {
                  speech += results[i].itemName+' ';
               }
             }
-          }
+          } 
           else if(req.body.queryResult.parameters.stockCount == 'low stock count')
           {
-            speech="Items with low stock count are: \n"
+            speech="Items with low stock count are: <br/>";
             for (var i = results.length - 1; i >= 0; i--) {
               if(results[i].cnt <= 20)
               {
