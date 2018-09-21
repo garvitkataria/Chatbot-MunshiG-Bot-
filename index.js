@@ -103,7 +103,7 @@ restService.post("/echo", function(req, res) {
         }
         else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.category=="category")
         {
-          speech="Total categories are:";
+          speech="All categories are:";
            let sql = 'SELECT * FROM category';
             let query = db.query(sql, (err, categoryIdResults) => {
             if(err) throw err;
@@ -112,6 +112,7 @@ restService.post("/echo", function(req, res) {
               console.log(categoryIdResults[i].category);
               speech += categoryIdResults[i].category+' ';
             }
+            console.log(speech);
           });   
         } 
         else
@@ -120,7 +121,7 @@ restService.post("/echo", function(req, res) {
         }
         return res.json(
         {
-        // "fulfillmentText": [speech, speech],
+        "fulfillmentText": [speech],
         "fulfillmentMessages": [
           {
             "text":{
