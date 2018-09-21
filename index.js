@@ -28,8 +28,16 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
-  console.log(req.body);
-  console.log(req.body.queryResult.parameters.echoText);
+  x = any;
+  let sql = 'SELECT * FROM item';
+  let query = db.query(sql, (err, results) => {
+        if(err) throw err;
+        console.log(results[4]);
+        console.log(results);
+        x=results;
+        // res.json(results);
+    });
+
   var speech
 
   if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.echoText)
@@ -38,7 +46,7 @@ restService.post("/echo", function(req, res) {
   }
   if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.outofstock)
   {
-    speech = "Every thing is out of stock";
+    speech = x;
   }
   else
   {
