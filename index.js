@@ -309,7 +309,7 @@ restService.post("/echo", function(req, res) {
           {
             if(results[i].itemName.toLowerCase() == req.body.queryResult.parameters.itemName.toLowerCase())
             {
-              countOfItem = parseInt(results[i].count); 
+              countOfItem =countOfItem + parseInt(results[i].count); 
               console.log("last"+countOfItem);
               break;
             }
