@@ -44,9 +44,9 @@ restService.post("/echo", function(req, res) {
           for (var i = results.length - 1; i >= 0; i--) {
             if(results[i].cnt == 0)
             {
-               console.log(results[i].RowDataPacket.itemName);
-               console.log(results[i].RowDataPacket.categoryId);
-               console.log(results[i].RowDataPacket.price);
+               console.log(results[i].itemName);
+               console.log(results[i].categoryId);
+               console.log(results[i].price);
             }
           }
         }
