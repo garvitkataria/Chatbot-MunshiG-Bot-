@@ -146,7 +146,7 @@ restService.post("/echo", function(req, res) {
           {
               for (var i = results.length - 1; i >= 0; i--) 
               {
-                if(results[i].itemName.toLowerCase().match() == req.body.queryResult.parameters.itemName.toLowerCase())
+                if(results[i].itemName.toLowerCase() == req.body.queryResult.parameters.itemName.toLowerCase())
                 {
                    console.log(results[i].itemName);
                    console.log(results[i].categoryId);
