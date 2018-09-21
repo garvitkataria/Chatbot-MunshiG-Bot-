@@ -78,6 +78,7 @@ restService.post("/echo", function(req, res) {
             console.log(req.body.queryResult.parameters.itemType);
             console.log(req.body.queryResult.parameters.itemName);
             for (var i = results.length - 1; i >= 0; i--) {
+              console.log(results[i].itemName);
               if(results[i].itemName == req.body.queryResult.parameters.itemName)
               {
                  console.log(results[i].itemName);
