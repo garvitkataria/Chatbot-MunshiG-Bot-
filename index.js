@@ -223,7 +223,7 @@ restService.post("/echo", function(req, res) {
               }
             }
             console.log(speech);
-         }); 
+          
              return res.json(
               {
               "fulfillmentText": [speech],
@@ -237,7 +237,9 @@ restService.post("/echo", function(req, res) {
                 }
               ],
               }
-            );     
+
+            );  
+            });   
         } 
         else
         {
