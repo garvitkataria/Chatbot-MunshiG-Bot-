@@ -38,7 +38,7 @@ restService.post("/echo", function(req, res) {
     {
       "text":{
         "text":[
-          "text response"
+          speech
         ]
       },
       // "card": {
