@@ -221,6 +221,7 @@ restService.post("/echo", function(req, res) {
 
               }
             }
+            }); 
             console.log(speech);
              return res.json(
               {
@@ -235,9 +236,7 @@ restService.post("/echo", function(req, res) {
                 }
               ],
               }
-            );
-            
-          });   
+            );     
         } 
         else
         {
