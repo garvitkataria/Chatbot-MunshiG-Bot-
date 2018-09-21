@@ -243,19 +243,22 @@ restService.post("/echo", function(req, res) {
         } 
         else if(req.body.queryResult.parameters.number&&req.body.queryResult.parameters.itemName&&req.body.queryResult.parameters.change&&req.body.queryResult.parameters.changeType)
         {
-          priceOfItem=0.0;
+          priceOfItem=0;
           for (var i = results.length - 1; i >= 0; i--) 
           {
             if(results[i].itemName == req.body.queryResult.parameters.itemName)
             {
               priceOfItem = parseInt(results[i].price); 
+              console.log(priceOfItem);
             }
           }
           if(req.body.queryResult.parameters.change=='increase')
           {
             if(req.body.queryResult.parameters.changeType=='by')
             {
+              console.log("1st"+priceOfItem);
               priceOfItem =  priceOfItem+parseInt(req.body.queryResult.parameters.number);
+              console.log("2nd"+priceOfItem);
             }
             else if(req.body.queryResult.parameters.changeType=='to')
             {
