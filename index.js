@@ -23,11 +23,11 @@ restService.post("/echo", function(req, res) {
   return res.json({
     speech: speech,
     displayText: speech,
-    source: "webhook-echo-sample";
+    source: "webhook-echo-sample"
   });
 });
 
 
-restService.listen(process.env.PORT || 8000, function() {
+restService.listen(process.env.PORT || 8001, function() {
   console.log("Server up and listening");
 });
