@@ -48,12 +48,15 @@ restService.post("/echo", function(req, res) {
   if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.outofstock)
   {
     speech = speech1;
-    for (var i = speech1.length() - 1; i >= 0; i--) {
-      if(speech1[i].cnt == 0)
-      {
-         console.log(speech1[i]);
-      }
-    }
+    console.log(speech1[0]);
+    console.log(speech1[2]);
+    console.log(speech1[3]);
+    // for (var i = speech1.length - 1; i >= 0; i--) {
+    //   if(speech1[i].cnt == 0)
+    //   {
+    //      console.log(speech1[i]);
+    //   }
+    // }
   }
   else
   {
