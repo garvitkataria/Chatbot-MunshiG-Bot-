@@ -273,6 +273,10 @@ restService.post("/echo", function(req, res) {
               priceOfItem =  parseFloat(req.body.queryResult.parameters.number);
             }
           }
+          else if(req.body.queryResult.parameters.change=='set')
+          {
+              priceOfItem =  parseFloat(req.body.queryResult.parameters.number);
+          }
           speech = ("Price of "+req.body.queryResult.parameters.itemName+" successfully updated to "+priceOfItem+'.');
           console.log(speech);
           console.log(priceOfItem);
