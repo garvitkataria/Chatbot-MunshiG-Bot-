@@ -209,7 +209,7 @@ restService.post("/echo", function(req, res) {
             if(err) throw err;
             for (var i = categoryIdResults.length - 1; i >= 0; i--) 
             {
-              if(categoryIdResults[i].category==req.body.queryResult.parameters.category)
+              if(categoryIdResults[i].category.toLowerCase()==req.body.queryResult.parameters.category.toLowerCase())
               {
                  id=categoryIdResults[i].categoryId;
               }
