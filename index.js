@@ -39,29 +39,32 @@ restService.post("/echo", function(req, res) {
         {
           speech = req.body.queryResult.parameters.echoText;
         }
-        else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.outofstock)
+        else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.stockCount)
         {
-          speech="The Items out of stock are: "
-          for (var i = results.length - 1; i >= 0; i--) {
-            if(results[i].cnt == 0)
-            {
-               console.log(results[i].itemName);
-               console.log(results[i].categoryId);
-               console.log(results[i].price);
-               speech += results[i].itemName+' ';
+          if(req.body.queryResult.parameters.stockCount == 'out of stock')
+          {
+            speech="The Items out of stock are: "
+            for (var i = results.length - 1; i >= 0; i--) {
+              if(results[i].cnt == 0)
+              {
+                 console.log(results[i].itemName);
+                 console.log(results[i].categoryId);
+                 console.log(results[i].price);
+                 speech += results[i].itemName+' ';
+              }
             }
           }
-        }
-        else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.lowstock)
-        {
-          speech="Items with low stock count are: \n"
-          for (var i = results.length - 1; i >= 0; i--) {
-            if(results[i].cnt <= 20)
-            {
-               console.log(results[i].itemName);
-               console.log(results[i].categoryId);
-               console.log(results[i].price);
-               speech += results[i].itemName+' '+results[i].cnt+'\n';
+          else if(req.body.queryResult.parameters.stockCount == 'low stock count')
+          {
+            speech="Items with low stock count are: \n"
+            for (var i = results.length - 1; i >= 0; i--) {
+              if(results[i].cnt <= 20)
+              {
+                 console.log(results[i].itemName);
+                 console.log(results[i].categoryId);
+                 console.log(results[i].price);
+                 speech += results[i].itemName+' '+results[i].cnt+'\n';
+              }
             }
           }
         }
