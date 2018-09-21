@@ -79,7 +79,7 @@ restService.post("/echo", function(req, res) {
             console.log(req.body.queryResult.parameters.itemName);
             for (var i = results.length - 1; i >= 0; i--) {
               console.log(results[i].itemName);
-              if(results[i].itemName == req.body.queryResult.parameters.itemName)
+              if(results[i].itemName.toLowerCase() == req.body.queryResult.parameters.itemName.toLowerCase())
               {
                  console.log(results[i].itemName);
                  console.log(results[i].categoryId);
@@ -92,7 +92,7 @@ restService.post("/echo", function(req, res) {
           {
               for (var i = results.length - 1; i >= 0; i--) 
               {
-                if(results[i].itemName == req.body.queryResult.parameters.itemName)
+                if(results[i].itemName.toLowerCase() == req.body.queryResult.parameters.itemName.toLowerCase())
                 {
                    console.log(results[i].itemName);
                    console.log(results[i].categoryId);
