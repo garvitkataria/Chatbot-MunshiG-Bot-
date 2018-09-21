@@ -47,6 +47,7 @@ restService.post("/echo", function(req, res) {
                console.log(results[i].itemName);
                console.log(results[i].categoryId);
                console.log(results[i].price);
+               speech += results[i].itemName;
             }
           }
         }
