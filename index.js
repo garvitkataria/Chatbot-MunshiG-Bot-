@@ -113,6 +113,20 @@ restService.post("/echo", function(req, res) {
               speech += categoryIdResults[i].category+' ';
             }
             console.log(speech);
+             return res.json(
+                {
+                "fulfillmentText": [speech],
+                "fulfillmentMessages": [
+                  {
+                    "text":{
+                      "text":[
+                        speech
+                      ]
+                    },
+                  }
+                ],
+                }
+              );
           });   
         } 
         else
