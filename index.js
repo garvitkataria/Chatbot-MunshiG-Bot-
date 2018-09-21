@@ -202,6 +202,7 @@ restService.post("/echo", function(req, res) {
         }
          else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.category)
         {
+          id="";
           speech="Items of this category are:";
            let sql = 'SELECT * FROM category';
             let query = db.query(sql, (err, categoryIdResults) => {
@@ -210,18 +211,18 @@ restService.post("/echo", function(req, res) {
             {
               if(categoryIdResults[i].category==req.body.queryResult.parameters.category)
               {
-                  for (var i = results.length - 1; i >= 0; i--) 
-                  {
-                    if(results[i].categoryId==categoryIdResults[i].categoryId)
-                    {
-                      console.log(results[i].itemName);
-                      speech += results[i].itemName+', ';
-                    }
-                  }
-
+                 id=categoryIdResults[i].categoryId;
               }
             }
-            }); 
+            for (var i = results.length - 1; i >= 0; i--) 
+            {
+              if(results[i].categoryId==id)
+              {
+                  console.log(results[i].itemName);
+                  speech += results[i].itemName+', ';
+              }
+            }
+         }); 
             console.log(speech);
              return res.json(
               {
