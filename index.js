@@ -33,8 +33,8 @@ restService.post("/echo", function(req, res) {
   let sql = 'SELECT * FROM item';
   let query = db.query(sql, (err, results) => {
         if(err) throw err;
-        console.log(results[4]);
-        console.log(results);
+        //console.log(results[4]);
+        //console.log(results);
         // res.json(results);
         speech1 = results;
     });
@@ -48,6 +48,12 @@ restService.post("/echo", function(req, res) {
   if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.outofstock)
   {
     speech = speech1;
+    for (var i = speech1.length - 1; i >= 0; i--) {
+      if(speech1[i].cnt == 0)
+      {
+         console.log(speech1[i]);
+      }
+    }
   }
   else
   {
