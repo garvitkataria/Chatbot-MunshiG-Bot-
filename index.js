@@ -28,12 +28,13 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
-
+          console.log(req.body.queryResult.parameters.itemType);
+          console.log(req.body.queryResult.parameters.itemName);
   var speech;
   let sql = 'SELECT * FROM item';
   let query = db.query(sql, (err, results) => {
         if(err) throw err;
-      
+        
 
         if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.echoText)
         {
@@ -70,8 +71,6 @@ restService.post("/echo", function(req, res) {
         }
         else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.itemName && req.body.queryResult.parameters.itemType)
         {
-          console.log(req.body.queryResult.parameters.itemType);
-          console.log(req.body.queryResult.parameters.itemName);
           if(req.body.queryResult.parameters.itemType == 'count')
           {
             for (var i = results.length - 1; i >= 0; i--) {
