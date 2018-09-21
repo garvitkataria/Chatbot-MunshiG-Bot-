@@ -302,7 +302,7 @@ restService.post("/echo", function(req, res) {
               });
             });
         }
-        else if(req.body.queryResult.parameters.count&&req.body.queryResult.parameters.itemName&&req.body.queryResult.parameters.change&&req.body.queryResult.parameters.changeType)
+        else if((req.body.queryResult.parameters.count==0||req.body.queryResult.parameters.count)&&req.body.queryResult.parameters.itemName&&req.body.queryResult.parameters.change&&req.body.queryResult.parameters.changeType)
         {
           countOfItem=0;
           for (var i = results.length - 1; i >= 0; i--) 
