@@ -51,7 +51,7 @@ restService.post("/echo", function(req, res) {
   },
   "outputContexts": [
     {
-      "name": "projects/contexts/context name",
+      "name": "projects/contexts/contextname",
       "lifespanCount": 5,
       "parameters": {
         "param": "param value"
