@@ -33,23 +33,7 @@ restService.post("/echo", function(req, res) {
   // }
 
   {
-  "fulfillmentText": "This is a text response",
-  "fulfillmentMessages": [
-    {
-      "card": {
-        "title": "card title",
-        "subtitle": "card text",
-        "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
-        "buttons": [
-          {
-            "text": "button text",
-            "postback": "https://assistant.google.com/"
-          }
-        ]
-      }
-    }
-  ],
-  "source": "example.com",
+  
   "payload": {
     "google": {
       "expectUserResponse": true,
@@ -64,12 +48,6 @@ restService.post("/echo", function(req, res) {
         "text": "Hello, Facebook!"
       }
     },
-    "facebook": {
-      "text": "Hello, Facebook!"
-    },
-    "slack": {
-      "text": "This is a text response for Slack."
-    }
   },
   "outputContexts": [
     {
@@ -80,13 +58,7 @@ restService.post("/echo", function(req, res) {
       }
     }
   ],
-  "followupEventInput": {
-    "name": "event name",
-    "languageCode": "en-US",
-    "parameters": {
-      "param": "param value"
-    }
-  }
+  
 }
 
   );
