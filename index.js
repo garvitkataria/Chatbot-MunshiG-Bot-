@@ -28,6 +28,10 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
+
+
+
+
           console.log(req.body.queryResult.parameters.itemType);
           console.log(req.body.queryResult.parameters.itemName);
   var speech;
@@ -92,7 +96,7 @@ restService.post("/echo", function(req, res) {
           {
               for (var i = results.length - 1; i >= 0; i--) 
               {
-                if(results[i].itemName.toLowerCase().match(/req.body.queryResult.parameters.itemName.toLowerCase()/g))
+                if(results[i].itemName.toLowerCase().match() == req.body.queryResult.parameters.itemName.toLowerCase())
                 {
                    console.log(results[i].itemName);
                    console.log(results[i].categoryId);
@@ -103,6 +107,30 @@ restService.post("/echo", function(req, res) {
             
           }
         }
+        else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.category)
+        {
+          speech="Items in "+req.body.queryResult.parameters.category+" are:";
+           let sql = 'SELECT * FROM item';
+            let query = db.query(sql, (err, categoryIdResults) => {
+            if(err) throw err;
+            for (var i = categoryIdResults.length - 1; i >= 0; i--) 
+            {
+              if(categoryIdResults[i].category== req.body.queryResult.parameters.category)
+              {
+                for (var i = results.length - 1; i >= 0; i--) 
+                {
+                  if(results[i].categoryId == categoryIdResults[i].categoryId)
+                  {
+                    console.log(results[i].itemName);
+                    console.log(results[i].categoryId);
+                    console.log(results[i].price);
+                    speech += results[i].itemName+' ';
+                  }
+                }
+              }
+            }
+          });   
+        } 
         else
         {
           speech = "Seems like some problem. Speak again.";
