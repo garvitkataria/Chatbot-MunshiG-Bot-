@@ -7,7 +7,7 @@ const db = mysql.createConnection({
     host     : 'itsdb.c4idvpseeifj.ap-south-1.rds.amazonaws.com',
     user     : 'its',
     password : 'itsproject',
-    database : 'chinook'
+    database : 'grocery',
     port : 3306
 });
 // Connect
@@ -81,6 +81,6 @@ restService.post("/notInStock", function(req, res) {
 });
 
 
-restService.listen(process.env.PORT || 8001, function() {
+restService.listen(process.env.PORT || 8072, function() {
   console.log("Server up and listening");
 });
