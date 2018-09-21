@@ -110,22 +110,22 @@ restService.post("/echo", function(req, res) {
             for (var i = categoryIdResults.length - 1; i >= 0; i--) 
             {
               console.log(categoryIdResults[i].category);
-              speech += categoryIdResults[i].category+' ';
+              speech += categoryIdResults[i].category+', ';
             }
             console.log(speech);
              return res.json(
-                {
-                "fulfillmentText": [speech],
-                "fulfillmentMessages": [
-                  {
-                    "text":{
-                      "text":[
-                        speech
-                      ]
-                    },
-                  }
-                ],
-                }
+                        {
+                        "fulfillmentText": [speech],
+                        "fulfillmentMessages": [
+                          {
+                            "text":{
+                              "text":[
+                                speech
+                              ]
+                            },
+                          }
+                        ],
+                        }
               );
           });   
         } 
