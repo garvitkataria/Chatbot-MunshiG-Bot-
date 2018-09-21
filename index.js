@@ -30,13 +30,20 @@ restService.use(bodyParser.json());
 restService.post("/echo", function(req, res) {
   console.log(req.body);
   console.log(req.body.queryResult.parameters.echoText);
-  var speech =
-    req.body.queryResult &&
-    req.body.queryResult.parameters &&
-    req.body.queryResult.parameters.echoText
-      ? req.body.queryResult.parameters.echoText
-      : "Seems like some problem. Speak again.";
-  console.log("speech",speech);
+  var speech
+
+  if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.echoText)
+  {
+    speech = req.body.queryResult.parameters.echoText;
+  }
+  if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.outofstock)
+  {
+    speech = "Every thing is out of stock";
+  }
+  else
+  {
+    speech = "Seems like some problem. Speak again.";
+  }
   return res.json(
   {
   "fulfillmentText": speech,
@@ -49,38 +56,14 @@ restService.post("/echo", function(req, res) {
       },
     }
   ],
-}
+  }
 );
 });
 
 
-restService.post("/notInStock", function(req, res) {
-  console.log(req.body);
-  console.log(req.body.queryResult.parameters.echoText);
-  var speech =
-    req.body.queryResult &&
-    req.body.queryResult.parameters &&
-    req.body.queryResult.parameters.echoText
-      ? req.body.queryResult.parameters.echoText
-      : "Seems like some problem. Speak again.";
-  console.log("speech",speech);
-  return res.json(
-  {
-  "fulfillmentText": speech,
-  "fulfillmentMessages": [
-    {
-      "text":{
-        "text":[
-          speech
-        ]
-      },
-    }
-  ],
-}
-);
-});
 
 
-restService.listen(process.env.PORT || 8072, function() {
+
+restService.listen(process.env.PORT || 8073, function() {
   console.log("Server up and listening");
 });
