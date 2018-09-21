@@ -40,7 +40,7 @@ restService.post("/echo", function(req, res) {
         "text":[
           "text response"
         ]
-      }
+      },
       "card": {
         "title": "card title",
         "subtitle": "card text",
