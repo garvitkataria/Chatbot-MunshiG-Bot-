@@ -33,7 +33,7 @@ restService.post("/echo", function(req, res) {
   // }
 
   {
-  "fulfillmentText": "This is a text response",
+  "fulfillmentText": speech,
   "fulfillmentMessages": [
     {
       "text":{
