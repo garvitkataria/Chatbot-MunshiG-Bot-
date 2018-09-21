@@ -302,6 +302,67 @@ restService.post("/echo", function(req, res) {
               });
             });
         }
+        else if(req.body.queryResult.parameters.count&&req.body.queryResult.parameters.itemName&&req.body.queryResult.parameters.change&&req.body.queryResult.parameters.changeType)
+        {
+          countOfItem=0;
+          for (var i = results.length - 1; i >= 0; i--) 
+          {
+            if(results[i].itemName.toLowerCase() == req.body.queryResult.parameters.itemName.toLowerCase())
+            {
+              countOfItem = parseInt(results[i].count); 
+              console.log("last"+countOfItem);
+              break;
+            }
+          }
+          if(req.body.queryResult.parameters.change=='increase')
+          {
+            if(req.body.queryResult.parameters.changeType=='by')
+            {
+              console.log("1st"+countOfItem);
+              countOfItem =  countOfItem+parseInt(req.body.queryResult.parameters.count);
+              console.log("2nd"+countOfItem);
+            }
+            else if(req.body.queryResult.parameters.changeType=='to')
+            {
+              countOfItem =  parseInt(req.body.queryResult.parameters.count);
+            }
+          }
+          else if(req.body.queryResult.parameters.change=='decrease')
+          {
+            if(req.body.queryResult.parameters.changeType=='by')
+            {
+              countOfItem =  countOfItem - parseInt(req.body.queryResult.parameters.count);
+            }
+            else if(req.body.queryResult.parameters.changeType=='to')
+            {
+              countOfItem =  parseInt(req.body.queryResult.parameters.count);
+            }
+          }
+          else if(req.body.queryResult.parameters.change=='set')
+          {
+              countOfItem =  parseInt(req.body.queryResult.parameters.count);
+          }
+          speech = ("Count of "+req.body.queryResult.parameters.itemName+" successfully updated to "+countOfItem+'.');
+          console.log(speech);
+          console.log(countOfItem);
+          let sql = `UPDATE item SET count = ${countOfItem} WHERE itemName = "${req.body.queryResult.parameters.itemName}"`;
+          let query = db.query(sql, (err, results) => {
+              if(err) throw (err);
+              return res.json(
+              {
+              "fulfillmentText": [speech],
+              "fulfillmentMessages": [
+                {
+                  "text":{
+                    "text":[
+                      speech
+                    ]
+                  },
+                }
+              ],
+              });
+            });
+        }
         else
         {
           speech = "Seems like some problem. Speak again.";
