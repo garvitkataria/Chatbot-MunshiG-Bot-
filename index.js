@@ -104,7 +104,7 @@ restService.post("/echo", function(req, res) {
         else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.category=="category")
         {
           speech="Total categories are:";
-           let sql = 'SELECT * FROM item';
+           let sql = 'SELECT * FROM category';
             let query = db.query(sql, (err, categoryIdResults) => {
             if(err) throw err;
             for (var i = categoryIdResults.length - 1; i >= 0; i--) 
