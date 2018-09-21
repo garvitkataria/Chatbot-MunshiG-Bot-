@@ -33,32 +33,22 @@ restService.post("/echo", function(req, res) {
   // }
 
   {
-  
-  "payload": {
-    "google": {
-      "expectUserResponse": true,
-      "richResponse": {
-        "items": [
-          {
-            "simpleResponse": {
-              "textToSpeech": "this is a simple response"
-            }
-          }
-        ],
-        "text": "Hello, Facebook!"
-      }
-    },
-  },
-  "outputContexts": [
+  "fulfillmentText": "This is a text response",
+  "fulfillmentMessages": [
     {
-      "name": "projects/contexts/contextname",
-      "lifespanCount": 5,
-      "parameters": {
-        "param": "param value"
+      "card": {
+        "title": "card title",
+        "subtitle": "card text",
+        "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
+        "buttons": [
+          {
+            "text": "button text",
+            "postback": "https://assistant.google.com/"
+          }
+        ]
       }
     }
   ],
-  
 }
 
   );
