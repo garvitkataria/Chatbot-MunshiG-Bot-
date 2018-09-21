@@ -29,7 +29,7 @@ restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
 
-  var speech
+  var speech;
   let sql = 'SELECT * FROM item';
   let query = db.query(sql, (err, results) => {
         if(err) throw err;
@@ -41,6 +41,7 @@ restService.post("/echo", function(req, res) {
         }
         if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.outofstock)
         {
+          speech="The Items out of stock are: "
           for (var i = results.length - 1; i >= 0; i--) {
             if(results[i].cnt == 0)
             {
