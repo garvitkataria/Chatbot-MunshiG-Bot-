@@ -28,36 +28,6 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
-
-      if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.category=="category")
-        {
-          speech="All categories are:";
-           let sql = 'SELECT * FROM category';
-            let query = db.query(sql, (err, categoryIdResults) => {
-            if(err) throw err;
-            for (var i = categoryIdResults.length - 1; i >= 0; i--) 
-            {
-              console.log(categoryIdResults[i].category);
-              speech += categoryIdResults[i].category+', ';
-            }
-            console.log(speech); 
-            return res.json(
-              {
-              "fulfillmentText": [speech],
-              "fulfillmentMessages": [
-                {
-                  "text":{
-                    "text":[
-                      speech
-                    ]
-                  },
-                }
-              ],
-              }
-            );
-          });   
-        } 
-
   var speech;
   let sql = 'SELECT * FROM item';
   let query = db.query(sql, (err, results) => {
@@ -131,6 +101,22 @@ restService.post("/echo", function(req, res) {
             
           }
         }
+        else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.category=="category")
+        {
+          speech="All categories are:";
+           let sql = 'SELECT * FROM category';
+            let query = db.query(sql, (err, categoryIdResults) => {
+            if(err) throw err;
+            for (var i = categoryIdResults.length - 1; i >= 0; i--) 
+            {
+              console.log(categoryIdResults[i].category);
+              speech += categoryIdResults[i].category+', ';
+            }
+            console.log(speech);
+             
+            
+          });   
+        } 
         else
         {
           speech = "Seems like some problem. Speak again.";
