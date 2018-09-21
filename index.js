@@ -345,7 +345,7 @@ restService.post("/echo", function(req, res) {
           speech = ("Count of "+req.body.queryResult.parameters.itemName+" successfully updated to "+countOfItem+'.');
           console.log(speech);
           console.log(countOfItem);
-          let sql = `UPDATE item SET count = ${countOfItem} WHERE itemName = "${req.body.queryResult.parameters.itemName}"`;
+          let sql = `UPDATE item SET cnt = ${countOfItem} WHERE itemName = "${req.body.queryResult.parameters.itemName}"`;
           let query = db.query(sql, (err, results) => {
               if(err) throw (err);
               return res.json(
