@@ -37,6 +37,20 @@ restService.post("/echo", function(req, res) {
         if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.echoText)
         {
           speech = req.body.queryResult.parameters.echoText;
+           return res.json(
+              {
+              "fulfillmentText": [speech],
+              "fulfillmentMessages": [
+                {
+                  "text":{
+                    "text":[
+                      speech
+                    ]
+                  },
+                }
+              ],
+              }
+            );
         }
         else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.stockCount)
         {
@@ -52,6 +66,20 @@ restService.post("/echo", function(req, res) {
                  speech += results[i].itemName+' ';
               }
             }
+             return res.json(
+              {
+              "fulfillmentText": [speech],
+              "fulfillmentMessages": [
+                {
+                  "text":{
+                    "text":[
+                      speech
+                    ]
+                  },
+                }
+              ],
+              }
+            );
           } 
           else if(req.body.queryResult.parameters.stockCount == 'low stock count')
           {
@@ -66,6 +94,20 @@ restService.post("/echo", function(req, res) {
               }
             }
           }
+           return res.json(
+              {
+              "fulfillmentText": [speech],
+              "fulfillmentMessages": [
+                {
+                  "text":{
+                    "text":[
+                      speech
+                    ]
+                  },
+                }
+              ],
+              }
+            );
         }
         else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.itemName && req.body.queryResult.parameters.itemType)
         {
@@ -85,6 +127,20 @@ restService.post("/echo", function(req, res) {
                  speech="Stock count of "+results[i].itemName+" is "+results[i].cnt;
               }
             }
+             return res.json(
+              {
+              "fulfillmentText": [speech],
+              "fulfillmentMessages": [
+                {
+                  "text":{
+                    "text":[
+                      speech
+                    ]
+                  },
+                }
+              ],
+              }
+            );
           }
           else  if(req.body.queryResult.parameters.itemType == 'price')
           {
@@ -100,6 +156,20 @@ restService.post("/echo", function(req, res) {
               }
             
           }
+           return res.json(
+              {
+              "fulfillmentText": [speech],
+              "fulfillmentMessages": [
+                {
+                  "text":{
+                    "text":[
+                      speech
+                    ]
+                  },
+                }
+              ],
+              }
+            );
         }
         else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.category=="category")
         {
@@ -133,6 +203,20 @@ restService.post("/echo", function(req, res) {
         else
         {
           speech = "Seems like some problem. Speak again.";
+           return res.json(
+              {
+              "fulfillmentText": [speech],
+              "fulfillmentMessages": [
+                {
+                  "text":{
+                    "text":[
+                      speech
+                    ]
+                  },
+                }
+              ],
+              }
+            );
         }
         
 
