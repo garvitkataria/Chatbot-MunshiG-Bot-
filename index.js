@@ -248,34 +248,34 @@ restService.post("/echo", function(req, res) {
           {
             if(results[i].itemName == req.body.queryResult.parameters.itemName)
             {
-              priceOfItem = parseFloat(results[i].price); 
+              priceOfItem = parseInt(results[i].price); 
             }
           }
           if(req.body.queryResult.parameters.change=='increase')
           {
             if(req.body.queryResult.parameters.changeType=='by')
             {
-              priceOfItem =  priceOfItem+parseFloat(req.body.queryResult.parameters.number);
+              priceOfItem =  priceOfItem+parseInt(req.body.queryResult.parameters.number);
             }
             else if(req.body.queryResult.parameters.changeType=='to')
             {
-              priceOfItem =  parseFloat(req.body.queryResult.parameters.number);
+              priceOfItem =  parseInt(req.body.queryResult.parameters.number);
             }
           }
           else if(req.body.queryResult.parameters.change=='decrease')
           {
             if(req.body.queryResult.parameters.changeType=='by')
             {
-              priceOfItem =  priceOfItem-parseFloat(req.body.queryResult.parameters.number);
+              priceOfItem =  priceOfItem - parseInt(req.body.queryResult.parameters.number);
             }
             else if(req.body.queryResult.parameters.changeType=='to')
             {
-              priceOfItem =  parseFloat(req.body.queryResult.parameters.number);
+              priceOfItem =  parseInt(req.body.queryResult.parameters.number);
             }
           }
           else if(req.body.queryResult.parameters.change=='set')
           {
-              priceOfItem =  parseFloat(req.body.queryResult.parameters.number);
+              priceOfItem =  parseInt(req.body.queryResult.parameters.number);
           }
           speech = ("Price of "+req.body.queryResult.parameters.itemName+" successfully updated to "+priceOfItem+'.');
           console.log(speech);
