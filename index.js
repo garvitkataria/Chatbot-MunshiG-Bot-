@@ -36,6 +36,11 @@ restService.post("/echo", function(req, res) {
   "fulfillmentText": "This is a text response",
   "fulfillmentMessages": [
     {
+      "text":{
+        "text":[
+          "text response"
+        ]
+      }
       "card": {
         "title": "card title",
         "subtitle": "card text",
