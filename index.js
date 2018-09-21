@@ -246,7 +246,7 @@ restService.post("/echo", function(req, res) {
           priceOfItem=0;
           for (var i = results.length - 1; i >= 0; i--) 
           {
-            if(results[i].itemName == req.body.queryResult.parameters.itemName)
+            if(results[i].itemName.toLowerCase() == req.body.queryResult.parameters.itemName.toLowerCase())
             {
               priceOfItem = parseInt(results[i].price); 
               console.log("last"+priceOfItem);
