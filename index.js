@@ -71,8 +71,12 @@ restService.post("/echo", function(req, res) {
         }
         else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.itemName && req.body.queryResult.parameters.itemType)
         {
+          console.log(req.body.queryResult.parameters.itemType);
+          console.log(req.body.queryResult.parameters.itemName);
           if(req.body.queryResult.parameters.itemType == 'count')
           {
+            console.log(req.body.queryResult.parameters.itemType);
+            console.log(req.body.queryResult.parameters.itemName);
             for (var i = results.length - 1; i >= 0; i--) {
               if(results[i].itemName == req.body.queryResult.parameters.itemName)
               {
