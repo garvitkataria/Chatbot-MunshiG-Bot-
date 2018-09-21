@@ -249,7 +249,8 @@ restService.post("/echo", function(req, res) {
             if(results[i].itemName == req.body.queryResult.parameters.itemName)
             {
               priceOfItem = parseInt(results[i].price); 
-              console.log(priceOfItem);
+              console.log("last"+priceOfItem);
+              break;
             }
           }
           if(req.body.queryResult.parameters.change=='increase')
