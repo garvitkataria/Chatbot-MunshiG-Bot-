@@ -278,7 +278,7 @@ restService.post("/echo", function(req, res) {
           console.log(priceOfItem);
           let sql = `UPDATE item SET price = ${priceOfItem} WHERE itemName = ${req.body.queryResult.parameters.itemName}`;
           let query = db.query(sql, (err, results) => {
-              if(err) throw err;
+              if(err) throw ("Hi"+err);
               return res.json(
               {
               "fulfillmentText": [speech],
