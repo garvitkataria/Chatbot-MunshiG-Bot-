@@ -109,7 +109,8 @@ restService.post("/echo", function(req, res) {
             if(err) throw err;
             for (var i = categoryIdResults.length - 1; i >= 0; i--) 
             {
-              speech += categoryIdResults[i].itemName+' ';
+              console.log(categoryIdResults[i].category);
+              speech += categoryIdResults[i].category+' ';
             }
           });   
         } 
