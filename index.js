@@ -39,7 +39,7 @@ restService.post("/echo", function(req, res) {
         {
           speech = req.body.queryResult.parameters.echoText;
         }
-        if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.outofstock)
+        else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.outofstock)
         {
           speech="The Items out of stock are: "
           for (var i = results.length - 1; i >= 0; i--) {
@@ -49,6 +49,19 @@ restService.post("/echo", function(req, res) {
                console.log(results[i].categoryId);
                console.log(results[i].price);
                speech += results[i].itemName+' ';
+            }
+          }
+        }
+        else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.lowstock)
+        {
+          speech="Items with low stock count are: \n"
+          for (var i = results.length - 1; i >= 0; i--) {
+            if(results[i].cnt <= 20)
+            {
+               console.log(results[i].itemName);
+               console.log(results[i].categoryId);
+               console.log(results[i].price);
+               speech += results[i].itemName+' '+results[i].cnt+'\n';
             }
           }
         }
