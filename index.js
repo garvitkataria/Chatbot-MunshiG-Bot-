@@ -113,7 +113,20 @@ restService.post("/echo", function(req, res) {
               speech += categoryIdResults[i].category+', ';
             }
             console.log(speech);
-             
+             return res.json(
+              {
+              "fulfillmentText": [speech],
+              "fulfillmentMessages": [
+                {
+                  "text":{
+                    "text":[
+                      speech
+                    ]
+                  },
+                }
+              ],
+              }
+            );
             
           });   
         } 
@@ -121,20 +134,7 @@ restService.post("/echo", function(req, res) {
         {
           speech = "Seems like some problem. Speak again.";
         }
-        return res.json(
-        {
-        "fulfillmentText": [speech],
-        "fulfillmentMessages": [
-          {
-            "text":{
-              "text":[
-                speech
-              ]
-            },
-          }
-        ],
-        }
-      );
+        
 
     });
 
