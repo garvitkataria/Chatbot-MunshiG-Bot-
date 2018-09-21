@@ -68,6 +68,35 @@ restService.post("/echo", function(req, res) {
             }
           }
         }
+        else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.itemName && req.body.queryResult.parameters.itemType)
+        {
+          if(req.body.queryResult.parameters.itemType == 'count')
+          {
+            for (var i = results.length - 1; i >= 0; i--) {
+              if(results[i].itemName == req.body.queryResult.parameters.itemName)
+              {
+                 console.log(results[i].itemName);
+                 console.log(results[i].categoryId);
+                 console.log(results[i].price);
+                 speech="Stock count of "+results[i].itemName+" is "+results[i].cnt;
+              }
+            }
+          }
+          else  if(req.body.queryResult.parameters.itemType == 'price')
+          {
+              for (var i = results.length - 1; i >= 0; i--) 
+              {
+                if(results[i].itemName == req.body.queryResult.parameters.itemName)
+                {
+                   console.log(results[i].itemName);
+                   console.log(results[i].categoryId);
+                   console.log(results[i].price);
+                   speech="Price of "+results[i].itemName+" is "+results[i].price;
+                }
+              }
+            
+          }
+        }
         else
         {
           speech = "Seems like some problem. Speak again.";
@@ -79,8 +108,7 @@ restService.post("/echo", function(req, res) {
           {
             "text":{
               "text":[
-                speech,
-                speech,"hi anubhav"
+                speech
               ]
             },
           }
