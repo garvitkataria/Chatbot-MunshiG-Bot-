@@ -56,7 +56,7 @@ restService.post("/echo", function(req, res) {
           } 
           else if(req.body.queryResult.parameters.stockCount == 'low stock count')
           {
-            speech="Items with low stock count are: <br/>";
+            speech="Items with low stock count are: \n\n ";
             for (var i = results.length - 1; i >= 0; i--) {
               if(results[i].cnt <= 20)
               {
