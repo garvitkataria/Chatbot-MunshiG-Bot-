@@ -255,7 +255,7 @@ restService.post("/echo", function(req, res) {
           {
             if(req.body.queryResult.parameters.changeType=='by')
             {
-              priceOfItem +=  parseFloat(req.body.queryResult.parameters.number);
+              priceOfItem =  priceOfItem+parseFloat(req.body.queryResult.parameters.number);
             }
             else if(req.body.queryResult.parameters.changeType=='to')
             {
@@ -266,7 +266,7 @@ restService.post("/echo", function(req, res) {
           {
             if(req.body.queryResult.parameters.changeType=='by')
             {
-              priceOfItem -=  parseFloat(req.body.queryResult.parameters.number);
+              priceOfItem =  priceOfItem-parseFloat(req.body.queryResult.parameters.number);
             }
             else if(req.body.queryResult.parameters.changeType=='to')
             {
