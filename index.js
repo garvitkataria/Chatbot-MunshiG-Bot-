@@ -202,42 +202,42 @@ restService.post("/echo", function(req, res) {
         }
          else if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.category)
         {
-          // speech="Items of this category are:";
-          //  let sql = 'SELECT * FROM category';
-          //   let query = db.query(sql, (err, categoryIdResults) => {
-          //   if(err) throw err;
-          //   for (var i = categoryIdResults.length - 1; i >= 0; i--) 
-          //   {
-          //     if(categoryIdResults[i].category==req.body.queryResult.parameters.category)
-          //     {
-          //         for (var i = results.length - 1; i >= 0; i--) 
-          //         {
-          //           if(results[i].categoryId==categoryIdResults[i].categoryId)
-          //           {
-          //             console.log(results[i].itemName);
-          //             speech += results[i].itemName+', ';
-          //           }
-          //         }
+          speech="Items of this category are:";
+           let sql = 'SELECT * FROM category';
+            let query = db.query(sql, (err, categoryIdResults) => {
+            if(err) throw err;
+            for (var i = categoryIdResults.length - 1; i >= 0; i--) 
+            {
+              if(categoryIdResults[i].category==req.body.queryResult.parameters.category)
+              {
+                  for (var i = results.length - 1; i >= 0; i--) 
+                  {
+                    if(results[i].categoryId==categoryIdResults[i].categoryId)
+                    {
+                      console.log(results[i].itemName);
+                      speech += results[i].itemName+', ';
+                    }
+                  }
 
-          //     }
-          //   }
-          //   console.log(speech);
-          //    return res.json(
-          //     {
-          //     "fulfillmentText": [speech],
-          //     "fulfillmentMessages": [
-          //       {
-          //         "text":{
-          //           "text":[
-          //             speech
-          //           ]
-          //         },
-          //       }
-          //     ],
-          //     }
-          //   );
+              }
+            }
+            console.log(speech);
+             return res.json(
+              {
+              "fulfillmentText": [speech],
+              "fulfillmentMessages": [
+                {
+                  "text":{
+                    "text":[
+                      speech
+                    ]
+                  },
+                }
+              ],
+              }
+            );
             
-          // });   
+          });   
         } 
         else
         {
