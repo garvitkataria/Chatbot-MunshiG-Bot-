@@ -60,7 +60,8 @@ restService.post("/echo", function(req, res) {
               "textToSpeech": "this is a simple response"
             }
           }
-        ]
+        ],
+        "text": "Hello, Facebook!"
       }
     },
     "facebook": {
