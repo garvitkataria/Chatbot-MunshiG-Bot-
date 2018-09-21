@@ -28,14 +28,15 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
-  x = any;
+
+  var speech1
   let sql = 'SELECT * FROM item';
   let query = db.query(sql, (err, results) => {
         if(err) throw err;
         console.log(results[4]);
         console.log(results);
-        x=results;
         // res.json(results);
+        speech1 = results;
     });
 
   var speech
@@ -46,7 +47,7 @@ restService.post("/echo", function(req, res) {
   }
   if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.outofstock)
   {
-    speech = x;
+    speech = speech1;
   }
   else
   {
