@@ -222,8 +222,8 @@ restService.post("/echo", function(req, res) {
                   speech += results[i].itemName+', ';
               }
             }
-         }); 
             console.log(speech);
+         }); 
              return res.json(
               {
               "fulfillmentText": [speech],
