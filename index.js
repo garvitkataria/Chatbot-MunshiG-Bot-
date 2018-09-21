@@ -29,53 +29,47 @@ restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
 
-  var speech1
+  var speech
   let sql = 'SELECT * FROM item';
   let query = db.query(sql, (err, results) => {
         if(err) throw err;
-        //console.log(results[4]);
-        //console.log(results);
-        // res.json(results);
-        speech1 = results;
+      
+
+        if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.echoText)
+        {
+          speech = req.body.queryResult.parameters.echoText;
+        }
+        if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.outofstock)
+        {
+          for (var i = results.length - 1; i >= 0; i--) {
+            if(results[i].cnt == 0)
+            {
+               console.log(results[i]);
+            }
+          }
+        }
+        else
+        {
+          speech = "Seems like some problem. Speak again.";
+        }
+        return res.json(
+        {
+        "fulfillmentText": speech,
+        "fulfillmentMessages": [
+          {
+            "text":{
+              "text":[
+                speech
+              ]
+            },
+          }
+        ],
+        }
+      );
+
     });
 
-  var speech
 
-  if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.echoText)
-  {
-    speech = req.body.queryResult.parameters.echoText;
-  }
-  if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.outofstock)
-  {
-    speech = speech1;
-    console.log(speech1[0]);
-    console.log(speech1[2]);
-    console.log(speech1[3]);
-    // for (var i = speech1.length - 1; i >= 0; i--) {
-    //   if(speech1[i].cnt == 0)
-    //   {
-    //      console.log(speech1[i]);
-    //   }
-    // }
-  }
-  else
-  {
-    speech = "Seems like some problem. Speak again.";
-  }
-  return res.json(
-  {
-  "fulfillmentText": speech,
-  "fulfillmentMessages": [
-    {
-      "text":{
-        "text":[
-          speech
-        ]
-      },
-    }
-  ],
-  }
-);
 });
 
 
