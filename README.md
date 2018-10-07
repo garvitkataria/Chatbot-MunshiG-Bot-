@@ -11,6 +11,9 @@ MunshiG Bot:
 
 • https://bot.dialogflow.com/078b9e27-8090-4cd2-8bb0-1daed2b7b53d
 
+- Youtube Link
+• https://youtu.be/ldi-MGSh-Rs
+
 • The bot is still in development, so sometimes the queries which must be recognised may not be recognised.
 
 - Functionalities
