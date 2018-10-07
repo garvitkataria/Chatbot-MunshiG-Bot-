@@ -110,7 +110,7 @@ MunshiG Bot:
 
 • The bot uses Webhook to communicate to the server connected to the database to get the data, so any mutation, new functionality requires handling some query parameters on the server as well.
 
-- Team Members:
+Team Members:
 
 • Anubhav Ujjawal (anubhav.u16@iiits.in) 
 
