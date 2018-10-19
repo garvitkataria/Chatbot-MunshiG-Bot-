@@ -5,7 +5,7 @@ TopBot - Almost Human
 
 MunshiG Bot:
 
-- The bot is aimed for general grocery stores and it will be help the grocery store to update their stock. It will also help the customers in finding out prices of the grocery items. The main purpose is to provide grocery stores with a easy accounting and stock management system.
+- The bot is aimed for general grocery stores and it will be help the grocery store to update their stock. It will also help the customers in finding out prices of the grocery items. The main purpose is to provide grocery stores with an easy accounting and stock management system.
 
 - Demo Link:
 
@@ -26,11 +26,11 @@ MunshiG Bot:
 
 • It can update the price and count of an item. It can remember the item referenced in previous chat to update the price of that item(contextual talk).
 
-- To use the bot.
+- How to use the bot:
 
 • We can start the chat with the bot by greeting it or by directly asking any question/query we have. If the bot doesn’t understand the query, it will prompt the user to repeat the query.
 
-- Some examples:
+- Following are some examples:
 
 • User: Hi.
 
@@ -82,9 +82,9 @@ MunshiG Bot:
 
 • Bot: Price of Cucumber is 80
 
-• User: Increase the price of cucumber by 30.
+• User: Increase the price of cucumber by 40.
 
-• Bot: Price of cucumber successfully updated to 110.
+• Bot: Price of cucumber successfully updated to 120.
 
 • User: Set the price of cucumber to 50.
 
