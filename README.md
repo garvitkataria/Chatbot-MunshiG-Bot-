@@ -26,7 +26,7 @@
 
 * We can start the chat with the bot by greeting it or by directly asking any question/query we have. If the bot doesn’t understand the query, it will prompt the user to repeat the query.
 
-- Some examples:
+- Following are some examples:
 
 > User: Hi.
 
