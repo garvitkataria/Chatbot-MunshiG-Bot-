@@ -108,7 +108,7 @@
 
 > Bot: Items with low stock count are: Cucumber 0, Shrimp 10, Tuna 10, Walnuts 0, Cat Nail Trimmer 10, Pet Bowl 10, Rasgulla 10, French fries 0, Red-wine vinegar 4
 
-> The bot uses Webhook to communicate to the server connected to the database to get the data, so any mutation, new functionality requires handling some query parameters on the server as well.
+#### The bot uses Webhook to communicate to the server connected to the database to get the data, so any mutation, new functionality requires handling some query parameters on the server as well.
 
 ### Team Members:
 
