@@ -44,69 +44,69 @@
 
 > User: List all the categories.
 
->> Bot: All categories are:Pet Supplies, Sweets, diet, Snack, personal hygiene, grocery,
+> Bot: All categories are:Pet Supplies, Sweets, diet, Snack, personal hygiene, grocery,
 
 > User: List all items
 
->> Bot: Which category?
+> Bot: Which category?
 
 > User: Grocery
 
->> Bot: Items of this category are:olive oil, Red-wine vinegar, Tomato sauce, Brown rice, Whole wheat bread,
+> Bot: Items of this category are:olive oil, Red-wine vinegar, Tomato sauce, Brown rice, Whole wheat bread,
 
 > User: List all diet items
 
->> Bot: Items of this category are:Cucumber, Shrimp, Tuna, Walnuts, Coconuts,
+> Bot: Items of this category are:Cucumber, Shrimp, Tuna, Walnuts, Coconuts,
 
 * The user can query about the price and the count of any item. - Some Examples:
 
 > User: what is the price of cucumber?
 
->> Bot: Price of Cucumber is 60
+> Bot: Price of Cucumber is 60
 
 > User: Tell me the count of gulab jamun.
 
->> Bot: Stock count of Gulab Jamun is 0
+> Bot: Stock count of Gulab Jamun is 0
 
 * The user can update the price/count of any item. - Some Examples:
 
 > User: what is the price of cucumber?
 
->> Bot: Price of Cucumber is 60
+> Bot: Price of Cucumber is 60
 
 > User: set its price to 80.
 
->> Bot: Price of cucumber successfully updated to 80. 
+> Bot: Price of cucumber successfully updated to 80. 
 
 > User: what is the price of cucumber?
 
->> Bot: Price of Cucumber is 80
+> Bot: Price of Cucumber is 80
 
 > User: Increase the price of cucumber by 30.
 
->> Bot: Price of cucumber successfully updated to 110.
+> Bot: Price of cucumber successfully updated to 110.
 
 > User: Set the price of cucumber to 50.
 
->> Bot: Price of cucumber successfully updated to 50.
+> Bot: Price of cucumber successfully updated to 50.
 
 > User: Tell me the count of cucumber.
 
->> Bot: Stock count of Cucumber is 0
+> Bot: Stock count of Cucumber is 0
 
 > User: Set the count of gulab jamun to 100.
 
->> Bot: Count of gulab jamun successfully updated to 100.
+> Bot: Count of gulab jamun successfully updated to 100.
 
 * The user can query for items which are out of stock or have low count - Some Examples:
 
 > User: What are the items out of stock.
 
->> Bot: The Items out of stock are: Cucumber, Walnuts, French fries
+> Bot: The Items out of stock are: Cucumber, Walnuts, French fries
 
 > User: Show me the items having low stock count.
 
->> Bot: Items with low stock count are: Cucumber 0, Shrimp 10, Tuna 10, Walnuts 0, Cat Nail Trimmer 10, Pet Bowl 10, Rasgulla 10, French fries 0, Red-wine vinegar 4
+> Bot: Items with low stock count are: Cucumber 0, Shrimp 10, Tuna 10, Walnuts 0, Cat Nail Trimmer 10, Pet Bowl 10, Rasgulla 10, French fries 0, Red-wine vinegar 4
 
 > The bot uses Webhook to communicate to the server connected to the database to get the data, so any mutation, new functionality requires handling some query parameters on the server as well.
 
